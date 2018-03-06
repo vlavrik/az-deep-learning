@@ -12,11 +12,11 @@
 # Part 1 - Building the CNN
 
 # Importing the Keras libraries and packages
-from keras.models import Sequential
-from keras.layers import Conv2D
-from keras.layers import MaxPooling2D
-from keras.layers import Flatten
-from keras.layers import Dense
+from tensorflow.python.keras.models import Sequential
+from tensorflow.python.keras.layers import Conv2D
+from tensorflow.python.keras.layers import MaxPooling2D
+from tensorflow.python.keras.layers import Flatten
+from tensorflow.python.keras.layers import Dense
 
 # Initialising the CNN
 classifier = Sequential()
@@ -43,7 +43,7 @@ classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = [
 
 # Part 2 - Fitting the CNN to the images
 
-from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.python.keras.preprocessing.image import ImageDataGenerator
 
 train_datagen = ImageDataGenerator(rescale = 1./255,
                                    shear_range = 0.2,
