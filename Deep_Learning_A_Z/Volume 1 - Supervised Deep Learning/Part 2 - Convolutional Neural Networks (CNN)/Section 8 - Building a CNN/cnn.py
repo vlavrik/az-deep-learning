@@ -17,6 +17,12 @@ from tensorflow.python.keras.layers import Conv2D
 from tensorflow.python.keras.layers import MaxPooling2D
 from tensorflow.python.keras.layers import Flatten
 from tensorflow.python.keras.layers import Dense
+import os
+
+os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   # see issue #152
+os.environ["CUDA_VISIBLE_DEVICES"]="3"
+os.system('export http_proxy=http://165.225.66.34:10015')
+os.system('export https_proxy=https://165.225.66.34:10015')
 
 # Initialising the CNN
 classifier = Sequential()
