@@ -1,9 +1,9 @@
 # Recurrent Neural Network
-
-
+import os
 
 # Part 1 - Data Preprocessing
-
+os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   # see issue #152
+os.environ["CUDA_VISIBLE_DEVICES"]="3"
 # Importing the libraries
 import numpy as np
 import matplotlib.pyplot as plt
@@ -89,10 +89,10 @@ predicted_stock_price = regressor.predict(X_test)
 predicted_stock_price = sc.inverse_transform(predicted_stock_price)
 
 # Visualising the results
-plt.plot(real_stock_price, color = 'red', label = 'Real Google Stock Price')
-plt.plot(predicted_stock_price, color = 'blue', label = 'Predicted Google Stock Price')
-plt.title('Google Stock Price Prediction')
-plt.xlabel('Time')
-plt.ylabel('Google Stock Price')
-plt.legend()
-plt.show()
+#plt.plot(real_stock_price, color = 'red', label = 'Real Google Stock Price')
+#plt.plot(predicted_stock_price, color = 'blue', label = 'Predicted Google Stock Price')
+#plt.title('Google Stock Price Prediction')
+#plt.xlabel('Time')
+#plt.ylabel('Google Stock Price')
+#plt.legend()
+#plt.show()
