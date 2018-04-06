@@ -1,7 +1,11 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-%matplotlib inline
+import os
+os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   # see issue #152
+os.environ["CUDA_VISIBLE_DEVICES"]="3"
+os.system('export http_proxy=http://165.225.66.34:10015')
+os.system('export https_proxy=https://165.225.66.34:10015')
 
 dataset = pd.read_csv('Churn_Modelling.csv')
 
@@ -50,4 +54,3 @@ def build_classifier():
 classifier = KerasClassifier(build_fn=build_classifier, batch_size=10, epochs=100)
 accuracies = cross_val_score(classifier, X_train,y_train, cv= 10)
 print(accuracies)
-

@@ -15,6 +15,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
+os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   # see issue #152
+os.environ["CUDA_VISIBLE_DEVICES"]="3"
+os.system('export http_proxy=http://165.225.66.34:10015')
+os.system('export https_proxy=https://165.225.66.34:10015')
+
 
 # Importing the dataset
 dataset = pd.read_csv('Churn_Modelling.csv')
@@ -73,5 +79,7 @@ y_pred = classifier.predict(X_test)
 y_pred = (y_pred > 0.5)
 
 # Making the Confusion Matrix
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, f1_score
 cm = confusion_matrix(y_test, y_pred)
+print(cm)
+print(f1_score(y_test, y_pred))
